@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Site Policies Modal for Bootstrap</title>
+  <!-- Bootstrap core CSS -->
+  <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="//cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.1/css/mdb.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Page content -->
+  <main class="container">
+    <h1 class="mt-5" lang="zxx">Lorem Ipsum</h1>
+    <p class="lead" lang="zxx">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p lang="zxx">Nulla ut turpis nec est hendrerit laoreet. Proin magna elit, imperdiet ac sollicitudin sit amet, tincidunt vel velit. Ut sodales quam elit, rhoncus rhoncus nisi maximus vitae. Pellentesque sit amet nunc ex. Vivamus vitae finibus urna. Praesent maximus neque est, a molestie nulla accumsan eu. Maecenas non nisi tincidunt, pellentesque lectus eget, auctor neque. In quis sollicitudin mauris.</p>
+    <p lang="zxx">Nullam mattis magna ut nunc imperdiet consectetur. Maecenas varius venenatis libero, eget pellentesque dolor tincidunt vel. Duis ipsum tellus, facilisis sit amet lacinia eget, pretium non nisl. Nullam orci leo, aliquet vel odio et, vehicula lacinia purus. Mauris sodales, erat vitae viverra venenatis, turpis magna dignissim urna, vel dapibus nibh justo at massa. Ut rutrum, orci sed faucibus viverra, nisl mi euismod eros, et vestibulum velit lorem sit amet mauris. Aliquam commodo aliquam rutrum. Phasellus vitae mattis neque. Praesent tincidunt, risus eget venenatis hendrerit, felis eros vestibulum dolor, a viverra dolor massa ut orci. Ut rutrum leo nec suscipit dignissim. Mauris porttitor nisi et lacinia aliquet.</p>
+  </main>
+  <!-- Site policies modal (bottom) -->
+  <div class="modal fade bottom" id="sitePoliciesModal" tabindex="-1" role="dialog" aria-labelledby="sitePoliciesModal" aria-hidden="true">
+    <div class="modal-dialog modal-frame modal-bottom" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row d-flex justify-content-center align-items-center">
+            <p class="pt-3 pr-2">
+              By using our site, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and Terms of Use. 
+            </p>
+            <button type="button" class="btn btn-primary" id="sitePoliciesAcknowledged" data-dismiss="modal">Got it</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- JQuery -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- JQuert cookie plugin -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <!-- Site policies cookie -->
+  <script>
+    $(document).ready(function() {
+      var site_policies_status = $.cookie("site_policies");
+      if (site_policies_status != "acknowledged") {
+        $("#sitePoliciesModal").modal("show");
+      }
+      $("#sitePoliciesAcknowledged").on("click", function() {
+        $.cookie("site_policies", "acknowledged", { expires: 14, path: "/" });
+      });
+    });
+  </script>
+</body>
+</html>
